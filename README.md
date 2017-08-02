@@ -1,4 +1,4 @@
-#Playing With React
+# Playing With React
 
 This repository contains different applications created to learn react. Each application were created using create-react-app.
 
