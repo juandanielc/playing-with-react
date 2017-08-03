@@ -1,0 +1,60 @@
+import React from 'react';
+import 'isomorphic-fetch';
+
+class RestApi extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {jobs: []};
+  }
+
+ componentDidMount() {
+    var th = this;
+    fetch('https://codepen.io/jobs.json')  
+    .then((response) => {
+        return response.json()
+    })
+    .then((recurso) => {
+        th.setState({
+            jobs: recurso.jobs
+          });
+    })
+
+/*
+  fetch('https://mywebsite.com/endpoint/', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    firstParam: 'yourValue',
+    secondParam: 'yourOtherValue',
+  })
+})
+ */
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Jobs!</h1>
+        {/* Don't have an ID to use for the key, URL work ok? */}
+        {this.state.jobs.map(function(job) {
+          return (
+            <fieldset key={job.url}>
+              <legend>{job.title}</legend>
+              <label>Company: </label>
+              <strong>{job.company_name}</strong><br />
+              <label>Term: </label>
+              <strong>{job.term}</strong><br />
+              <a href={job.url} target="_blank" rel="noopener noreferrer">more...</a>
+            </fieldset>
+          );
+        })}
+      </div>
+    )
+  }
+}
+
+export default RestApi; 

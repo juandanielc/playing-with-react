@@ -1,0 +1,172 @@
+@import 'styles/_base.scss';
+$cell-win: #aca;
+$cell-hover: #eee;
+$row-selected: #2ecc71;
+$ttt-color-lines: 1px solid #a1a1a1;
+$his-cell: #e67e22;
+$his-cell-hov: #d35400;
+$his-cell-sel-hov: #27ae60;
+
+$size-cell: 40px;
+$width-expected: 500px;
+$width-his: .60 * $width-expected;
+$width-board: .40 * $width-expected;
+$width-table: $size-cell * 3;
+
+$diagonal: 58px;
+
+@mixin win-line($type) {
+	$line: 2px solid red; 
+	position: absolute;
+	@if $type == 1 {
+	    width: $size-cell;
+	    height: $size-cell / 2;
+	    top: 0;
+	    left:0px;
+	    border-bottom: $line;
+	} @else {
+		@if $type == 2 {
+	    	height: $size-cell;
+	    	width: $size-cell / 2;
+	    } @else {
+	    	@if $type == 3 {
+				height: $diagonal;
+				width: $diagonal / 2;
+			} @else {
+				height: $diagonal / 2;
+				width: $diagonal;
+			}
+			@include transform(translateX(-5px) rotate(-45deg));
+	    }
+	    
+	    @if $type == 4 {
+	    	border-top: $line;
+		    top: 15px;
+		    left: 7px;
+	    } @else {
+	    	border-right: $line;
+	    	top: 0px;
+	    	left: 0;
+	    }	    
+	}
+}
+
+@-webkit-keyframes win {
+0%, 49% {
+    visibility: hidden;
+}
+50%, 100% {
+    visibility: visible;
+}
+}
+
+@mixin win-lines() {
+	$i: 0;
+	@while $i < 4 {
+		$i: $i + 1;
+  		.cell-win-#{$i} {
+			.win-line {
+				display: block;
+				@include win-line($i);
+				@include animation(win 1s 3);
+			}
+
+  		}
+  	}
+}
+
+.win-line {
+	display: none;
+}
+
+.my-tic-tac-toe-wraper {
+	font: 14px "Century Gothic", Futura, sans-serif;
+	text-align: center;
+	width: $width-expected + 22px;
+	padding: 10px;
+	margin: 0;
+	border: 1px solid #ddd;
+	.wraper-controls {
+		.btn {
+			width: 90%;
+			max-width: 250px;
+			padding: 10px 20px;
+		}
+	}
+	.wraper-board {
+		width: $width-board;
+		margin: 20px auto;
+		float: right;
+		text-align: center;
+		table{
+			margin: 0 auto;
+			text-align: center;
+			border-spacing: 0;
+			border-collapse: collapse;
+			td {
+				position: relative;
+				width: $size-cell;
+				height: $size-cell;
+				font-size: 35px;
+				line-height: 35px;
+				padding: 0;
+				margin: 0;
+				font-weight: 900;
+				border: 0px;
+				@include transition( background-color .5s );
+				cursor:default;
+			}
+			td:nth-child(2) {
+				border-left: $ttt-color-lines;
+				border-right: $ttt-color-lines;
+			}
+			tr:nth-child(2) td {
+				border-top: $ttt-color-lines;
+				border-bottom: $ttt-color-lines;
+			}
+			td.cell {
+				cursor: pointer;
+				font-size: 14px;
+			}
+			td.cell-win {
+				color: red;
+				@include transition( color 5s );
+			}
+			td.cell-filled {
+				font-size: 35px;
+			}
+			@include win-lines();
+			td.cell:hover {
+				background-color: $cell-hover;
+			}
+		}
+	}
+	.history-table {
+		width: $width-his;
+		margin: 0 auto;
+		font-size: 16px;
+		float: right;
+		text-align: center;
+		div {
+			max-width: 250px;
+			cursor: pointer;
+			margin: 10px auto;
+			padding: 5px 10px;
+			background-color: $his-cell;
+			line-height: 20px;
+		}
+
+		div:hover, div:focus {
+		  background-color: $his-cell-hov;
+		}
+
+		.selected {
+			font-weight: 700;
+			background-color: $row-selected;
+		}
+
+		.selected:hover, .selected:focus {
+		  background-color: $his-cell-sel-hov;
+		}
+	}
+}

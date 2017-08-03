@@ -1,0 +1,57 @@
+.heroes-app {
+  /* Master Styles */
+  color: #888;
+  font-family: Cambria, Georgia;
+  margin: 2em;
+  /* Navigation link styles */
+  /* everywhere else */
+  /*
+Copyright 2017 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/ }
+  .heroes-app h1 {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%; }
+  .heroes-app h2, .heroes-app h3 {
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter; }
+  .heroes-app input[text], .heroes-app button {
+    color: #888;
+    font-family: Cambria, Georgia; }
+  .heroes-app a {
+    cursor: pointer;
+    cursor: hand; }
+  .heroes-app button {
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand; }
+  .heroes-app button:hover {
+    background-color: #cfd8dc; }
+  .heroes-app button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto; }
+  .heroes-app nav a {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px; }
+  .heroes-app nav a:visited, .heroes-app a:link {
+    color: #607D8B; }
+  .heroes-app nav a:hover {
+    color: #039be5;
+    background-color: #CFD8DC; }
+  .heroes-app nav a.active {
+    color: #039be5; }
+  .heroes-app * {
+    font-family: Arial, Helvetica, sans-serif; }
