@@ -1,6 +1,6 @@
-const baseUrl = 'http://elrincondepascalito.juan.dev';
+const baseUrl = 'http://react-heroes.juandanielc.com';
 const urlHeroes = baseUrl + '/api/heroes';
-const urlAuth = baseUrl + "/jwt/app/";
+const urlAuth = baseUrl + "/api/auth";
 
 const getHeader = () => (
     sessionStorage.getItem('jwtToken') ? 
@@ -47,10 +47,10 @@ export const updateHero = (hero) => {
     });
   }
 
-export const auth = (data) => fetch(urlAuth, {
+export const auth = () => fetch(urlAuth, {
     method: 'POST',
     headers: getHeader(),
-      body: JSON.stringify(data)
+      body: JSON.stringify()
     }).then(function(response) {
       return response.json();
     });

@@ -1,5 +1,5 @@
 import * as api from '../api';
-import jwt from 'jwt-decode';
+import store from '../store';
 
 export const ADD_HERO     = 'ADD_HERO';
 export const UPDATE_HERO  = 'UPDATE_HERO';
@@ -72,14 +72,13 @@ export const getHero = (heroes, id) => {
 	return heroes.find((t) => t.id === hId);
 }
 
-export const getToken = (user, pass) => {
-		api.auth({'user': user, 'pass': pass})
-			.then((token) => {
-				sessionStorage.setItem('jwtToken', token.token);
-
-				const decoded = jwt(token.token);
-				console.log(decoded);
-			})
+export const getToken = () => {
+	sessionStorage.setItem('jwtToken', '');
+	api.auth()
+		.then((token) => {
+			sessionStorage.setItem('jwtToken', token.token);
+			store.dispatch(loadHeroes());
+		})
 }
 
-getToken("code.wolf@ghostffco.de", "ThisIsAPassword");
+getToken();

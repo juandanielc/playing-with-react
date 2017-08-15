@@ -29,8 +29,9 @@ const Dashboard = (props) => (
 				}
 			</div>
 			<div className="clear"></div>
-			<HeroSearch />
 			<CellP hero={{id:false, name:"Last Selected"}} />
+			<div className="clear"></div>
+			<HeroSearch />
 		</div>
 		)
 

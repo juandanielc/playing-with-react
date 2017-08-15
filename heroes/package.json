@@ -2,7 +2,6 @@
   "name": "test-bootstrap",
   "version": "0.1.0",
   "private": true,
-   "homepage": "http://elrincondepascalito.juan.dev/jsCourses/react/test-bootstrap/build",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "jwt-decode": "^2.2.0",

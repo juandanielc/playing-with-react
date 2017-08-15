@@ -11,7 +11,7 @@ import Dashboard from '../Dashboard';
 const App = () => (
   <Grid>
     <Row className="content">
-      <Col sm={4} md={3} className="sidebar">
+      <Col xs={12} sm={3} className="sidebar">
 
         <Panel className="panel-primary" header={<h3>Tour of Heroes</h3>}>
           <Nav activeKey={1} className="nav-sidebar">
@@ -24,7 +24,7 @@ const App = () => (
           </Nav><br />
         </Panel>
       </Col>
-      <Col className="main" sm={8} md={9} smOffset={4} mdOffset={3} >
+      <Col className="main" xs={12} sm={9} smOffset={3} xsOffset={0} >
         <Route exact path="/" component={Dashboard} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/heroes" component={Heroes} />

@@ -10,6 +10,7 @@ This repository contains different applications created to learn react.
 
 ### React mix
  - Folder: react-mix.
+ - Live demo [here](http://basic-react.juandanielc.com)
  - Tutorial related: QUICK START and ADVANCED GUIDES from [here](https://facebook.github.io/react/docs/hello-world.html)
  - The structure is not the best, but it is displaying the examples that are in the react documentation page.
  - In the menu option "more", you can see:
@@ -20,6 +21,7 @@ This repository contains different applications created to learn react.
 
 ### React Redux Example
  - Folder: react-redux-example
+ - Live demo [here](http://react-redux-example.juandanielc.com/)
  - Tutorials related: Are listed in the application home.
  - Contains example to:
     - Get started with create-react-app, Redux, React Router & Redux Thunk.
@@ -28,7 +30,9 @@ This repository contains different applications created to learn react.
 
 ### Heroes (React Redux Bootstrap) 
  - Folder: heroes.
- - Based in Heros application (taked from angular 2 tutorial and rebuild using react with bootstrap and redux. The rest api is harcoded with my local. I will change this).
+ - Live demo [here](http://react-heroes.juandanielc.com/)
+ - Based in Heros application (taked from angular 2 tutorial and rebuild using react with bootstrap and redux).
+ - This is a rest api app that uses jwt to manage the "session".
 
 ## General
 Each application was created using create-react-app.

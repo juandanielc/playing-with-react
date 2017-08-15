@@ -29,6 +29,12 @@
 .heroes-dashboard .col-1-4 {
   width: 25%; }
 
+@media (max-width: 768px) {
+  .heroes-dashboard .col-1-4 {
+    width: auto;
+  }
+}
+
 .heroes-dashboard .module {
   padding: 20px;
   text-align: center;
